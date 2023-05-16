@@ -25,13 +25,12 @@ def randFloat():
     return r / (1 << 56)
 
 
-flag = b'chsctf{java_nextDouble_is_harder_tbh}'
+flag = b'social{java_nextDouble_is_harder_tbh}'
 enc = []
 
 with open("output.txt", "w") as f:
     f.write(str(randFloat()) + "\n")
     for c in flag:
         r = randFloat()
-        print(r)
         enc.append(c * r)
     f.write(str(enc))

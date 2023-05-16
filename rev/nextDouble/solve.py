@@ -31,19 +31,25 @@ b = r - (a << 28)
 a <<= 4
 b <<= 4
 
-for a_small in range(16):
-    for b_small in range(16):
-        ta = a | a_small
-        tb = b | b_small
+# brute force lower bits
+for a_lower in range(16):
+    for b_lower in range(16):
+        ta = a | a_lower
+        tb = b | b_lower
         x = tb - ta
-        if x < 0:
-            x += 1 << 31
-            x += 1 # carry
-        
+        x %= 2**32
+
         y = tb
         SEED = (x << 32) | y
-        
-        for _ in enc:
-            print(randFloat())
+        rand()
 
-        exit()
+        flag = []
+        for e in enc:
+            flag.append(round(e / randFloat()))
+        try:
+            print(bytes(flag).decode())
+            exit()
+        except UnicodeDecodeError:
+            pass
+
+        

@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  chal:
+    container_name: web-chals
+    image: chal:web-chals
+    build: .
+    ports:
+      - "5000:5000"
