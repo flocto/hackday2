@@ -1,4 +1,2 @@
 # hackday2
-codespace cuz lazy
-
-hello if u are reading thiz xd
+official repo for cs social ctf challenges (that no one did)
